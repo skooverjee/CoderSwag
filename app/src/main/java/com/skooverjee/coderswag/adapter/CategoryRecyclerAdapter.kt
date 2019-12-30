@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skooverjee.coderswag.R
 import com.skooverjee.coderswag.model.Category
 
-class CategoryRecyclerAdapter(val context: Context, val categories: List<Category>,
-                              val itemClick: (Category) -> Unit) :
+class CategoryRecyclerAdapter(val context: Context, val categories: List<Category>, val itemClick: (Category) -> Unit) :
     RecyclerView.Adapter<CategoryRecyclerAdapter.Holder>() {
 
     override fun onBindViewHolder(holder: Holder, position: Int) {

@@ -4,4 +4,7 @@
     <string name="category">CATEGORY</string>
     <string name="category_background">background image representing given category</string>
     <string name="products">Products</string>
+    <string name="product_descr">image of selected product</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_price">Product Price</string>
 </resources>
