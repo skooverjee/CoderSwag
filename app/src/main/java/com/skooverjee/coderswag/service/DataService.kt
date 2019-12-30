@@ -1,4 +1,4 @@
-package com.skooverjee.coderswag.services
+package com.skooverjee.coderswag.service
 
 import com.skooverjee.coderswag.model.Category
 import com.skooverjee.coderswag.model.Product
