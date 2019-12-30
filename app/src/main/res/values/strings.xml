@@ -3,4 +3,5 @@
     <string name="categories">Categories</string>
     <string name="category">CATEGORY</string>
     <string name="category_background">background image representing given category</string>
+    <string name="products">Products</string>
 </resources>
