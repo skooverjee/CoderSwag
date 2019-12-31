@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skooverjee.coderswag.R
 import com.skooverjee.coderswag.model.Product
 
-class ProductsRecyclerAdapter(val context: Context, val products: List<Product>) :
+class ProductsRecyclerAdapter(val context: Context, val products: List<Product>, val itemClick: (Product) -> Unit) :
     RecyclerView.Adapter<ProductsRecyclerAdapter.ProductHolder>() {
 
     override fun onBindViewHolder(holder: ProductHolder, position: Int) {
@@ -23,10 +23,10 @@ class ProductsRecyclerAdapter(val context: Context, val products: List<Product>)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.product_list_item, parent, false)
-        return ProductHolder(view)
+        return ProductHolder(view, itemClick)
     }
 
-    inner class ProductHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ProductHolder(itemView: View, val itemClick: (Product) -> Unit) : RecyclerView.ViewHolder(itemView) {
         val productImage = itemView.findViewById<ImageView>(R.id.productImage)
         val productName = itemView.findViewById<TextView>(R.id.productNameText)
         val productPrice = itemView.findViewById<TextView>(R.id.productPriceText)
@@ -36,6 +36,8 @@ class ProductsRecyclerAdapter(val context: Context, val products: List<Product>)
             productImage.setImageResource(resourceId)
             productName.text = product.title
             productPrice.text = product.price
+
+            itemView.setOnClickListener { itemClick(product) }
         }
     }
 

@@ -7,4 +7,8 @@
     <string name="product_descr">image of selected product</string>
     <string name="product_name">Product Name</string>
     <string name="product_price">Product Price</string>
+    <string name="product_detail">Product Detail</string>
+    <string name="selected_product_image_descr">image of product selected</string>
+    <string name="sample_description_here">Sample Description Here</string>
+    <string name="purchase">Purchase</string>
 </resources>

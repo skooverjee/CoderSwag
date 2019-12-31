@@ -1,5 +1,6 @@
 package com.skooverjee.coderswag.controller
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import com.skooverjee.coderswag.R
 import com.skooverjee.coderswag.adapter.ProductsRecyclerAdapter
 import com.skooverjee.coderswag.service.DataService
 import com.skooverjee.coderswag.utilities.EXTRA_CATEGORY
+import com.skooverjee.coderswag.utilities.EXTRA_PRODUCT
 import kotlinx.android.synthetic.main.activity_products.*
 
 class ProductsActivity : AppCompatActivity() {
@@ -19,7 +21,13 @@ class ProductsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_products)
 
         val selectedCategory = intent.getStringExtra(EXTRA_CATEGORY)
-        adapter = ProductsRecyclerAdapter(this, DataService.getProducts(selectedCategory))
+
+        adapter = ProductsRecyclerAdapter(this, DataService.getProducts(selectedCategory)){ product ->
+            val productDetailActivity = Intent(this, ProductDetailActivity::class.java)
+            productDetailActivity.putExtra(EXTRA_PRODUCT, product)
+
+            startActivity(productDetailActivity)
+        }
 
         var spanCount = 2
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
